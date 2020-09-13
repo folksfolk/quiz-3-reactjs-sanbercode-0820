@@ -10,7 +10,8 @@ const MovieIndex = () => {
         year: 0,
         duration: 0,
         genre: "",
-        rating: 0, 
+        rating: 0,
+        image: "", 
         id: null})
 
     useEffect(() => {
@@ -25,7 +26,8 @@ const MovieIndex = () => {
                         year: el.year,
                         duration: el.duration,
                         genre: el.genre,
-                        rating: el.rating
+                        rating: el.rating,
+                        image: el.image
                     }}))
             })
         }
@@ -54,6 +56,7 @@ const MovieIndex = () => {
             duration: film.duration,
             genre: film.genre,
             rating: film.rating,
+            image: film.image,
             id: idFilm})
     }
 
@@ -85,6 +88,10 @@ const MovieIndex = () => {
                 setInput({...input, rating: event.target.value});
                 break
               }
+              case "image":{
+                setInput({...input, image: event.target.value});
+                break
+              }
               default: {break;}
         }
     }
@@ -95,6 +102,7 @@ const MovieIndex = () => {
         let title = input.title
         let description = input.description
         let genre = input.genre
+        let image = input.image
 
         if(input.id === null) {
             axios.post(`http://backendexample.sanbercloud.com/api/movies`, {
@@ -103,7 +111,8 @@ const MovieIndex = () => {
                 year:input.year, 
                 duration:input.duration, 
                 genre, 
-                rating:input.rating
+                rating:input.rating,
+                image
             })
             .then(res => {
                 setdataFilm([...dataFilm, {
@@ -113,7 +122,8 @@ const MovieIndex = () => {
                     year:input.year, 
                     duration:input.duration, 
                     genre, 
-                    rating:input.rating
+                    rating:input.rating,
+                    image
                 }])
             })
         } else {
@@ -123,7 +133,8 @@ const MovieIndex = () => {
                 year:input.year, 
                 duration:input.duration, 
                 genre, 
-                rating:input.rating
+                rating:input.rating,
+                image
             })
             .then(() => {
                 let data = dataFilm.find(el => el.id === input.id)
@@ -133,6 +144,7 @@ const MovieIndex = () => {
                 data.duration = input.duration 
                 data.genre = genre 
                 data.rating = input.rating
+                data.image = image
                 setdataFilm([...dataFilm])
             })
         }
@@ -144,6 +156,7 @@ const MovieIndex = () => {
             duration: 0,
             genre: "",
             rating: 0, 
+            image: "",
             id: null
         })
     }
@@ -162,6 +175,7 @@ const MovieIndex = () => {
                             <th>Duration</th>
                             <th>Genre</th>
                             <th>Rating</th>
+                            <th>Image</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -177,6 +191,7 @@ const MovieIndex = () => {
                                         <td>{item.duration}</td>
                                         <td>{item.genre}</td>
                                         <td>{item.rating}</td>
+                                        <td>{item.image}</td>
                                         <td>
                                             <button value={item.id} style={{marginRight: "5px"}} onClick={editForm}>Edit</button>
                                             <button value={item.id} onClick={deleteFilm}>Delete</button>
@@ -210,6 +225,9 @@ const MovieIndex = () => {
                         <br/>
                         <strong style={{marginRight: "10px"}}>Rating</strong>
                         <input required name="rating" type="text" value={input.rating} onChange={handleChange}/>
+                        <br/>
+                        <strong style={{marginRight: "10px"}}>Image</strong>
+                        <input required name="image" type="text" value={input.image} onChange={handleChange}/>
                         <br/>
                         <button>Save</button>
                     </form>
