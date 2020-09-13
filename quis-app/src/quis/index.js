@@ -5,17 +5,8 @@ class Index extends React.Component {
     render(){
         return(
             <>
-                <header>
-                    <img id="logo" src="public/img/logo.png" width="200px" />
-                    <nav>
-                        <ul>
-                            <li><a href="index.html">Home </a> </li>
-                            <li><a href="about.html">About </a> </li>
-                            <li><a href="contact.html">Movie List Editor </a> </li>
-                        </ul>
-                    </nav>
-                </header>
-                <section >
+            <div className="body">
+                <div className="section">
                     <h1>Featured Posts</h1>
                     <div id="article-list">
                         <div class="article">
@@ -48,23 +39,24 @@ class Index extends React.Component {
                                 Lorem Ipsum Dolor Sit Amet, mea te verear signiferumque, per illum labores ne. Blandit omnesque scripserit pri ex, et pri dicant eirmod deserunt. Aeque perpetua ea nec. Sit erant patrioque delicatissimi ut. Et sea quem sint, nam in minim voluptatibus. Etiam placerat eam in.
                             </p>
                         </div>
-                        <div>
+                        <div class="article">
                             <a href=""><h3>Lorem Post 5</h3></a>
                             <p>
                             Lorem Ipsum Dolor Sit Amet, mea te verear signiferumque, per illum labores ne. Blandit omnesque scripserit pri ex, et pri dicant eirmod deserunt. Aeque perpetua ea nec. Sit erant patrioque delicatissimi ut. Et sea quem sint, nam in minim voluptatibus. Etiam placerat eam in.
                             </p>
                         </div>
-                        <div>
+                        <div class="article">
                             <a href=""><h3>Lorem Post 5</h3></a>
                             <p>
                             Lorem Ipsum Dolor Sit Amet, mea te verear signiferumque, per illum labores ne. Blandit omnesque scripserit pri ex, et pri dicant eirmod deserunt. Aeque perpetua ea nec. Sit erant patrioque delicatissimi ut. Et sea quem sint, nam in minim voluptatibus. Etiam placerat eam in.
                             </p>
                         </div>
                     </div>
-                </section>
-                <footer>
+                </div>
+                <div className="footer">
                     <h5>copyright &copy; 2020 by Sanbercode</h5>
-                </footer>
+                </div>
+            </div>
             </>
         )
     }

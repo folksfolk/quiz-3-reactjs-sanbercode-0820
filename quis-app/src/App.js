@@ -1,14 +1,10 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import Index from './quis/index'
-import About from './quis/about'
+import Routes from './quis/Routes';
 
 function App() {
   return (
     <div>
-        <Index />
-        <About />
+        <Routes />
     </div>
   );
 }
